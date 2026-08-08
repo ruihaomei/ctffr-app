@@ -1,5 +1,7 @@
 # Three-Minute Quick Start
 
+Prefer a screenshot-led walkthrough? Open the [guided demo](DEMO.md).
+
 ## Install and open
 
 1. Install Python 3.12 from python.org.
@@ -24,4 +26,3 @@ Your browser opens the local application. No account or internet connection is n
 Warnings identify extrapolation beyond values observed in the study cohorts but do not block prediction. Errors identify the row and field to fix.
 
 The threshold category is a reporting convention, not a diagnosis. SHAP describes this model's local attribution and does not establish causality.
-

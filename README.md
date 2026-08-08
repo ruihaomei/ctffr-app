@@ -12,6 +12,8 @@ streamlit run app/streamlit_app.py
 
 ![Single-case application view](docs/images/single_case.png)
 
+[Open the visual three-minute demo](docs/DEMO.md) for a screenshot-led single-case and batch walkthrough.
+
 The model estimates CT-derived fractional flow reserve. CT-FFR is itself a computational estimate of invasive fractional flow reserve; this software does not predict invasive FFR.
 
 ## What it does
@@ -20,7 +22,7 @@ Enter one lesion or upload CSV, TSV, XLSX, or XLS data. The application validate
 
 ![Batch application view](docs/images/batch.png)
 
-The public samples are hand-authored synthetic lesions. No row-level development or external-cohort records are included. See [Quick start](docs/QUICKSTART.md), [input format](docs/INPUT_FORMAT.md), and the generated [data dictionary](docs/DATA_DICTIONARY.md).
+The public samples are hand-authored synthetic lesions. No row-level development or external-cohort records are included. See the [guided demo](docs/DEMO.md), [quick start](docs/QUICKSTART.md), [input format](docs/INPUT_FORMAT.md), and generated [data dictionary](docs/DATA_DICTIONARY.md).
 
 ## Command line
 
