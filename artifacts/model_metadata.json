@@ -1,0 +1,39 @@
+{
+  "model_version": "4.0.0-relaxed-shrinkage-regressor-20260805",
+  "feature_columns": [
+    "性别2",
+    "年龄字段",
+    "是否高血压",
+    "BMI分类",
+    "基础代谢率BMR",
+    "是否吸烟",
+    "是否饮酒",
+    "Vessel_LAD",
+    "Vessel_RCA",
+    "Vessel_LCX",
+    "血管斑块病变数",
+    "血管狭窄率",
+    "斑块长度",
+    "最大面积狭窄率",
+    "管腔最小截面积",
+    "斑块总负荷",
+    "CP_ratio",
+    "LP_ratio",
+    "易损斑块特征数",
+    "正性重构",
+    "低密度斑块",
+    "餐巾指环",
+    "点状钙化"
+  ],
+  "n_feature_columns": 23,
+  "n_design_matrix_columns": 48,
+  "reference_threshold": 0.8,
+  "shap_background": {
+    "method": "kmeans",
+    "n_centroids": 25,
+    "source": "development cohort"
+  },
+  "research_commit": "01618325b64fa0314a3da954c780943246992568",
+  "model_sha256": "d61e14e320a76d6d8d32ecc4e1ff10694286bd89ba296f10ecc790f0069627d4",
+  "exported_at": "2026-08-08"
+}
