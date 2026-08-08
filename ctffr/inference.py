@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -17,7 +18,17 @@ from .schema import FIELDS, MODEL_COLUMNS
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ARTIFACTS = ROOT / "artifacts"
+
+
+def _resolve_artifacts() -> Path:
+    """Locate artifacts in a source tree/editable install or an installed wheel."""
+    source_artifacts = ROOT / "artifacts"
+    if source_artifacts.is_dir():
+        return source_artifacts
+    return Path(sys.prefix) / "artifacts"
+
+
+ARTIFACTS = _resolve_artifacts()
 
 
 class ValidationError(ValueError):
@@ -93,4 +104,3 @@ def predict(raw: pd.DataFrame) -> pd.DataFrame:
 
 VERSION = str(load_metadata()["model_version"])
 REFERENCE_THRESHOLD = float(load_metadata()["reference_threshold"])
-

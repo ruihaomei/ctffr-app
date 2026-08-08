@@ -1,8 +1,19 @@
 """Tests for the shared inference API."""
+import sys
+
 import pandas as pd
 import pytest
 
 from ctffr import REFERENCE_THRESHOLD, ValidationError, predict
+from ctffr import inference
+
+
+def test_installed_wheel_artifact_location(tmp_path, monkeypatch):
+    installed = tmp_path / "artifacts"
+    installed.mkdir()
+    monkeypatch.setattr(inference, "ROOT", tmp_path / "site-packages")
+    monkeypatch.setattr(sys, "prefix", str(tmp_path))
+    assert inference._resolve_artifacts() == installed
 
 
 def test_chinese_and_english_headers_are_identical(sample_raw, chinese_headers):
@@ -23,4 +34,3 @@ def test_blocking_validation_raises_readable_error(sample_raw):
     with pytest.raises(ValidationError, match="min_lumen_area") as excinfo:
         predict(sample_raw.drop(columns=["min_lumen_area"]))
     assert "Traceback" not in str(excinfo.value)
-

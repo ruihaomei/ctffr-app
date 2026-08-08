@@ -1,0 +1,11 @@
+case_id,predicted_ctffr,threshold_category,age,sex,height_cm,weight_kg,hypertension,smoking,alcohol,target_vessel,plaque_lesions,diameter_stenosis,max_area_stenosis,min_lumen_area,plaque_length,total_plaque_burden,calcified_plaque_burden,lipid_plaque_burden,positive_remodeling,low_attenuation_plaque,napkin_ring_sign,spotty_calcification,bmi_category,basal_metabolic_rate,vessel_indicator,calcified_plaque_ratio,lipid_plaque_ratio,vulnerable_feature_count
+SYN-001,0.7984254595920152,<= 0.80,62,male,170.0,72.0,True,False,False,LAD proximal,1,55.0,62.0,2.4,22.0,20.0,8.0,0.5,True,False,False,True,2.0,1477.5,LAD,0.4,0.025,2.0
+SYN-002,0.8892708960679656,> 0.80,48,female,170.0,58.0,False,False,False,RCA mid,1,35.0,40.0,6.2,8.0,10.0,1.0,0.5,False,False,False,False,1.0,1241.5,RCA,0.1,0.05,0.0
+SYN-003,0.5927972529773307,<= 0.80,75,male,165.0,81.0,True,True,False,LCX distal,3,82.0,88.0,0.9,58.0,55.0,28.0,14.0,True,True,True,True,3.0,1471.25,LCX,0.509090909090909,0.2545454545454545,4.0
+SYN-004,0.8514639033308736,> 0.80,57,female,160.0,52.0,False,False,False,RPDA,1,46.0,50.0,3.8,14.0,16.0,2.0,4.0,False,False,False,False,1.0,1074.0,RCA,0.125,0.25,0.0
+SYN-005,0.6048798093181721,<= 0.80,68,male,178.0,92.0,True,True,True,LAD mid,4,70.0,79.0,1.5,44.0,48.0,20.0,11.0,True,True,True,True,3.0,1697.5,LAD,0.4166666666666667,0.22916666666666666,4.0
+SYN-006,0.9130993519359796,> 0.80,39,female,168.0,50.0,False,False,False,LCX proximal,1,31.0,36.0,8.5,5.0,6.0,0.0,1.0,False,False,False,False,0.0,1194.0,LCX,0.0,0.16666666666666666,0.0
+SYN-007,0.5007384128623085,<= 0.80,83,male,172.0,66.0,True,True,False,RCA proximal,5,92.0,96.0,0.4,86.0,72.0,50.0,8.0,True,True,True,True,1.0,1325.0,RCA,0.6944444444444444,0.1111111111111111,4.0
+SYN-008,0.7322534232221851,<= 0.80,64,female,155.0,70.0,True,False,True,LAD distal,2,60.0,68.0,2.1,30.0,34.0,12.0,6.0,True,False,True,False,3.0,1187.75,LAD,0.35294117647058826,0.17647058823529413,2.0
+SYN-009,0.8818401639176359,> 0.80,52,male,182.0,78.0,False,False,False,RCA distal,1,42.0,45.0,5.0,11.0,13.0,3.0,2.0,False,False,False,False,1.0,1662.5,RCA,0.23076923076923078,0.15384615384615385,0.0
+SYN-010,0.6252660610473608,<= 0.80,71,female,158.0,63.0,True,True,False,LCX mid,3,76.0,84.0,1.1,51.0,50.0,18.0,17.0,True,True,True,True,2.0,1101.5,LCX,0.36,0.34,4.0

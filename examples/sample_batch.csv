@@ -1,0 +1,11 @@
+case_id,age,sex,height_cm,weight_kg,hypertension,smoking,alcohol,target_vessel,plaque_lesions,diameter_stenosis,max_area_stenosis,min_lumen_area,plaque_length,total_plaque_burden,calcified_plaque_burden,lipid_plaque_burden,positive_remodeling,low_attenuation_plaque,napkin_ring_sign,spotty_calcification
+SYN-001,62,male,170.0,72.0,True,False,False,LAD proximal,1,55.0,62.0,2.4,22.0,20.0,8.0,0.5,True,False,False,True
+SYN-002,48,female,170.0,58.0,False,False,False,RCA mid,1,35.0,40.0,6.2,8.0,10.0,1.0,0.5,False,False,False,False
+SYN-003,75,male,165.0,81.0,True,True,False,LCX distal,3,82.0,88.0,0.9,58.0,55.0,28.0,14.0,True,True,True,True
+SYN-004,57,female,160.0,52.0,False,False,False,RPDA,1,46.0,50.0,3.8,14.0,16.0,2.0,4.0,False,False,False,False
+SYN-005,68,male,178.0,92.0,True,True,True,LAD mid,4,70.0,79.0,1.5,44.0,48.0,20.0,11.0,True,True,True,True
+SYN-006,39,female,168.0,50.0,False,False,False,LCX proximal,1,31.0,36.0,8.5,5.0,6.0,0.0,1.0,False,False,False,False
+SYN-007,83,male,172.0,66.0,True,True,False,RCA proximal,5,92.0,96.0,0.4,86.0,72.0,50.0,8.0,True,True,True,True
+SYN-008,64,female,155.0,70.0,True,False,True,LAD distal,2,60.0,68.0,2.1,30.0,34.0,12.0,6.0,True,False,True,False
+SYN-009,52,male,182.0,78.0,False,False,False,RCA distal,1,42.0,45.0,5.0,11.0,13.0,3.0,2.0,False,False,False,False
+SYN-010,71,female,158.0,63.0,True,True,False,LCX mid,3,76.0,84.0,1.1,51.0,50.0,18.0,17.0,True,True,True,True

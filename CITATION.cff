@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below after the project owner replaces all placeholders."
+title: "CT-FFR Research Inference Application"
+type: software
+version: 0.1.0
+date-released: 2026-08-08
+authors:
+  - family-names: "PLACEHOLDER"
+    given-names: "PLACEHOLDER"
+    orcid: "PLACEHOLDER"
+repository-code: "PLACEHOLDER"
+preferred-citation:
+  type: article
+  title: "PLACEHOLDER"
+  authors:
+    - family-names: "PLACEHOLDER"
+      given-names: "PLACEHOLDER"
+      orcid: "PLACEHOLDER"
+  journal: "PLACEHOLDER"
+  year: "PLACEHOLDER"
+  doi: "PLACEHOLDER"
+
