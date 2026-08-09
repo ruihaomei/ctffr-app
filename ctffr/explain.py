@@ -24,6 +24,7 @@ DISPLAY_LABELS = {
     "易损斑块特征数": "Vulnerable feature count", "正性重构": "Positive remodeling",
     "低密度斑块": "Low-attenuation plaque", "餐巾指环": "Napkin-ring sign", "点状钙化": "Spotty calcification",
 }
+SHAP_RANDOM_STATE = 42
 
 
 @dataclass(frozen=True)
@@ -75,7 +76,12 @@ def explain(raw: pd.DataFrame, case_id: str) -> Explanation:
         frame = pd.DataFrame(values, columns=MODEL_COLUMNS)
         return np.asarray(model.predict(frame), dtype=float)
 
-    explainer = shap.Explainer(prediction_function, background, algorithm="permutation")
+    explainer = shap.Explainer(
+        prediction_function,
+        background,
+        algorithm="permutation",
+        seed=SHAP_RANDOM_STATE,
+    )
     shap_result = explainer(model_input, max_evals=2 * len(MODEL_COLUMNS) + 1)
     contributions = np.asarray(shap_result.values[0], dtype=float)
     base_value = float(np.asarray(shap_result.base_values).reshape(-1)[0])
@@ -91,4 +97,3 @@ def explain(raw: pd.DataFrame, case_id: str) -> Explanation:
     )
     residual = prediction - (base_value + float(contributions.sum()))
     return Explanation(str(case_id), base_value, prediction, table, residual)
-

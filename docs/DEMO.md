@@ -65,6 +65,6 @@ The web app, CLI, and Python API call the same package-level inference code, so 
 
 ## Privacy-preserving SHAP disclosure
 
-The research analysis used 64 real development-cohort rows as its SHAP background. Those rows are not distributed. The app instead ships 25 k-means centroids, which are aggregate feature-space summaries rather than patient records. In the verification case, this changed the baseline by `-0.00634`; the largest individual contribution changed by `0.0086`, and the same five features remained in the top five, with only ranks 2 and 3 exchanged.
+The research analysis used 64 real development-cohort rows as its SHAP background. Those rows are not distributed. The app instead ships 25 k-means centroids, which are aggregate feature-space summaries rather than patient records. This changes the stable base value from `0.75341` to `0.74707` (difference, `-0.00635`). Local contribution differences and ranks depend on the case and permutation path, so app explanations should not be expected to reproduce manuscript SHAP charts exactly.
 
 For field definitions and model boundaries, continue with the [data dictionary](DATA_DICTIONARY.md), [input format](INPUT_FORMAT.md), and [model documentation](MODEL.md).

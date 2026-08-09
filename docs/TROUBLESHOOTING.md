@@ -18,9 +18,8 @@ Warnings about the observed range do not block prediction. They mean the valid i
 
 ## A SHAP chart differs from the manuscript
 
-This is expected at small magnitude because the public app uses aggregate k-means centroids instead of private patient rows. See [MODEL.md](MODEL.md) for exact measured differences.
+This is expected because the public app uses aggregate k-means centroids instead of private patient rows. See [MODEL.md](MODEL.md) for the fixed base-value difference and the limits of case-level comparisons.
 
 ## Docker cannot bind the port
 
 Another process may be using port 8501. Stop it or map a different host port, for example `docker run --rm -p 8502:8501 ctffr`.
-

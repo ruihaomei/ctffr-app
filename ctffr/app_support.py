@@ -17,8 +17,9 @@ from .schema import FIELDS
 
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_USE_STATEMENT = (
-    "**For research use only.** This software is not a medical device and is not intended for "
-    "standalone clinical diagnosis or treatment decisions."
+    "**For academic research use only. Not for clinical diagnosis or decision-making.** "
+    "This software is not a medical device, has not been prospectively validated for clinical "
+    "deployment, and must not be used to direct patient care."
 )
 CTFFR_STATEMENT = (
     "The model estimates CT-derived fractional flow reserve. CT-FFR is itself a computational "

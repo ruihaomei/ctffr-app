@@ -51,31 +51,29 @@ streamlit run app/streamlit_app.py
 | `artifacts/golden_cases.json` | 10 synthetic cases; prediction parity required |
 | `artifacts/shap_background.npz` | 25 aggregate k-means centroids; no patient rows |
 | SHAP additivity | Baseline plus 23 contributions reconstructs prediction within `1e-6` |
-| Tests | 34 passing |
+| Tests | 37 passing |
 | Last coverage result | 92.10% branch-aware |
 
 The fitted pipeline was made standalone by forcing the already-fitted `ColumnTransformer` to emit dense output and replacing the research-only `_dense` function reference with sklearn's identity transform. Golden predictions remained identical within `1e-9`; do not undo this portability fix.
 
-## SHAP privacy decision awaiting professor approval
+## SHAP privacy disclosure
 
 The manuscript analysis uses 64 private development-cohort rows as its SHAP background. The app distributes 25 aggregate centroids instead.
 
 | Quantity | Private 64 rows | App centroids | Difference |
 |---|---:|---:|---:|
-| Baseline | 0.75341 | 0.74707 | -0.00634 |
-| Largest single contribution change | — | — | 0.0086 |
-| Top-five features | Same set | Same set | Ranks 2 and 3 swap |
+| Baseline | 0.75341 | 0.74707 | -0.00635 |
 
-Recommended decision: accept the small quantified difference and retain the disclosure in `docs/MODEL.md`. Publishing the private patient rows is not an acceptable alternative.
+The base-value difference is fixed by the two backgrounds. Local contribution differences and ranks depend on the case and permutation path and are therefore disclosed qualitatively rather than as a universal maximum. Recommended decision: retain the centroid background and this limitation; publishing the private patient rows is not an acceptable alternative.
 
 ## Owner decisions still open
 
-- `LICENSE` intentionally remains `LICENCE TBD`. The current recommendation is Apache 2.0 for its explicit patent terms; MIT remains the simpler permissive option.
+- `LICENSE` is the standard MIT License. The separate intended-use notice states that the software is for academic research only and not for clinical diagnosis or decision-making; MIT itself remains permissive and does not impose an academic-only restriction.
 - `CITATION.cff` still needs the final author order, standardized English names, ORCIDs, repository URL, manuscript title, journal, year, and DOI.
 - Professor approval is required for the centroid-background SHAP release posture.
 - Build and run the Docker image on a host with Docker before public release.
 
-Do not publish the repository until these gates are closed.
+Do not publish the repository until the remaining citation, SHAP-approval and Docker gates are closed.
 
 ## Documentation and screenshot reuse
 

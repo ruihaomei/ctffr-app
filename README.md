@@ -2,7 +2,7 @@
 
 A local-first web, command-line, and Python application for locked continuous CT-FFR inference from common coronary CTA measurements.
 
-> **For research use only.** This software is not a medical device and is not intended for standalone clinical diagnosis or treatment decisions.
+> **For academic research use only. Not for clinical diagnosis or decision-making.** This software is not a medical device, has not been prospectively validated for clinical deployment, and must not be used to direct patient care.
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -45,7 +45,7 @@ Open `http://localhost:8501`. Data remain inside the local container.
 
 ## Model and testing
 
-The repository includes the integrity-checked fitted pipeline, an aggregate 25-centroid SHAP background, and ten synthetic golden cases. It contains no training code. Run:
+The repository includes the integrity-checked fitted pipeline, an aggregate synthetic SHAP background composed of 25 k-means cluster centroids, and ten synthetic golden cases. It contains no training code or exact patient rows. The app background is not the original patient-level background used for the manuscript, so app-generated SHAP values will not exactly reproduce the paper. The stable background-dependent base value changed from 0.75341 to 0.74707 (difference, -0.00635); case-level contribution differences depend on the feature profile and permutation path and should not be interpreted as a fixed global offset. Run:
 
 ```bash
 pytest --cov=ctffr --cov-report=term-missing
@@ -53,6 +53,8 @@ pytest --cov=ctffr --cov-report=term-missing
 
 Technical details, validation posture, and the quantified centroid-background SHAP difference are in [Model documentation](docs/MODEL.md).
 
-## Citation and licence
+## License, intended use, and citation
 
-`CITATION.cff` contains explicit placeholders pending the project owner's author list, ORCIDs, paper metadata, DOI, and repository URL. `LICENSE` intentionally remains `LICENCE TBD` until the project owner selects a licence. Do not publish this repository before both are finalized.
+The code is released under the [MIT License](LICENSE). MIT is a permissive open-source license and does not itself impose an academic-only or noncommercial restriction. Independently of that license, the authors' intended-use notice is explicit: this research prototype is for academic research and software evaluation only; it is not a medical device and must not be used for clinical diagnosis, treatment selection, or any patient-care decision.
+
+`CITATION.cff` contains explicit placeholders pending the project owner's author list, ORCIDs, paper metadata, DOI, and repository URL. Complete those fields before public release.
