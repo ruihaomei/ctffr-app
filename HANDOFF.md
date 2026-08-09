@@ -51,7 +51,7 @@ streamlit run app/streamlit_app.py
 | `artifacts/golden_cases.json` | 10 synthetic cases; prediction parity required |
 | `artifacts/shap_background.npz` | 25 aggregate k-means centroids; no patient rows |
 | SHAP additivity | Baseline plus 23 contributions reconstructs prediction within `1e-6` |
-| Tests | 37 passing |
+| Tests | 38 passing |
 | Last coverage result | 92.10% branch-aware |
 
 The fitted pipeline was made standalone by forcing the already-fitted `ColumnTransformer` to emit dense output and replacing the research-only `_dense` function reference with sklearn's identity transform. Golden predictions remained identical within `1e-9`; do not undo this portability fix.
