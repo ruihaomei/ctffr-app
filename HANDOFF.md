@@ -14,7 +14,7 @@ Run the verification suite:
 pytest
 ```
 
-Expected result: `34 passed`. The last clean Python 3.12 coverage run reported 92.10% branch-aware coverage. Docker execution remains unverified because Docker is not installed on the current host.
+Expected result: `38 passed`. The last clean Python 3.12 coverage run reported 92.10% branch-aware coverage. Docker execution remains unverified because Docker is not installed on the current host.
 
 Start the app after installing the package:
 

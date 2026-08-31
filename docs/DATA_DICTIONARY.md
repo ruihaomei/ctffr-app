@@ -4,7 +4,7 @@ This file is generated from `ctffr/schema.py`; do not edit it manually.
 
 | Field | Definition | Unit | Type | Accepted values | Chinese aliases |
 |---|---|---:|---|---|---|
-| `case_id` | Unique case identifier | — | str | non-empty text | 姓名, 病例号 |
+| `case_id` | Study identifier for the case (do not enter a patient name) | — | str | non-empty text | 姓名, 病例号 |
 | `age` | Age | years | int | 18 to 100 | 年龄 |
 | `sex` | Sex (male or female) | — | enum | male/female | 性别 |
 | `height_cm` | Height | cm | float | 120 to 220 | 身高 |

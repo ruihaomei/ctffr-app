@@ -48,6 +48,7 @@ Open `http://localhost:8501`. Data remain inside the local container.
 The repository includes the integrity-checked fitted pipeline, an aggregate synthetic SHAP background composed of 25 k-means cluster centroids, and ten synthetic golden cases. It contains no training code or exact patient rows. The app background is not the original patient-level background used for the manuscript, so app-generated SHAP values will not exactly reproduce the paper. The stable background-dependent base value changed from 0.75341 to 0.74707 (difference, -0.00635); case-level contribution differences depend on the feature profile and permutation path and should not be interpreted as a fixed global offset. Run:
 
 ```bash
+pip install -e ".[test]"
 pytest --cov=ctffr --cov-report=term-missing
 ```
 

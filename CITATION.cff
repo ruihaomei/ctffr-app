@@ -8,7 +8,7 @@ authors:
   - family-names: "PLACEHOLDER"
     given-names: "PLACEHOLDER"
     orcid: "PLACEHOLDER"
-repository-code: "PLACEHOLDER"
+repository-code: "https://github.com/ruihaomei/ctffr-app"
 preferred-citation:
   type: article
   title: "PLACEHOLDER"

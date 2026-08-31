@@ -54,7 +54,8 @@ def _field(
 
 
 FIELDS: tuple[Field, ...] = (
-    _field("case_id", "Unique case identifier", "", "str", aliases=("姓名", "病例号")),
+    _field("case_id", "Study identifier for the case (do not enter a patient name)",
+           "", "str", aliases=("姓名", "病例号")),
     _field("age", "Age", "years", "int", 18, 100, observed=(35, 95), aliases=("年龄",)),
     _field("sex", "Sex (male or female)", "", "enum", aliases=("性别",)),
     _field("height_cm", "Height", "cm", "float", 120, 220, aliases=("身高",)),
