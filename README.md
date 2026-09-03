@@ -54,8 +54,48 @@ pytest --cov=ctffr --cov-report=term-missing
 
 Technical details, validation posture, and the quantified centroid-background SHAP difference are in [Model documentation](docs/MODEL.md).
 
+## Reproducing the reported behaviour
+
+Three checks, each a single command from a clean checkout. Together they
+establish that the model shipped here is the model that produced the reported
+predictions, and that it still produces them.
+
+```bash
+pip install -e ".[test]"
+
+# 1. The suite. 38 tests, no network, no patient data.
+pytest -q
+
+# 2. The fitted pipeline is the one recorded. The loader verifies the SHA-256 of
+#    locked_model.joblib against artifacts/model_metadata.json on every import
+#    and refuses to run if they differ.
+python -c "from ctffr.inference import load_model; load_model(); print('model integrity verified')"
+
+# 3. The ten synthetic golden cases reproduce bit for bit.
+ctffr predict --input examples/sample_batch.csv --output /tmp/repro.csv
+python - <<'CHECK'
+import pandas as pd
+got = pd.read_csv("/tmp/repro.csv").set_index("case_id")["predicted_ctffr"]
+exp = pd.read_csv("examples/expected_output.csv").set_index("case_id")["predicted_ctffr"]
+delta = (got - exp).abs().max()
+print(f"max absolute difference over {len(exp)} cases: {delta:.12f}")
+assert delta == 0, "predictions have drifted from the recorded values"
+CHECK
+```
+
+Every run is deterministic: the pipeline is fitted and frozen, no seed is drawn
+at inference, and the SHAP background is a fixed set of 25 stored centroids.
+
+What these checks do **not** establish, and cannot from this repository alone:
+the numbers in the manuscript were produced by the analysis pipeline on the
+private patient data, which is not distributable. This package reproduces the
+model's *behaviour*, not the study's cohort results.
+
 ## License, intended use, and citation
 
 The code is released under the [MIT License](LICENSE). MIT is a permissive open-source license and does not itself impose an academic-only or noncommercial restriction. Independently of that license, the authors' intended-use notice is explicit: this research prototype is for academic research and software evaluation only; it is not a medical device and must not be used for clinical diagnosis, treatment selection, or any patient-care decision.
 
-`CITATION.cff` contains explicit placeholders pending the project owner's author list, ORCIDs, paper metadata, DOI, and repository URL. Complete those fields before public release.
+`CITATION.cff` carries the software title, version and licence. Author names,
+ORCID iDs and the journal reference are deliberately withheld while the
+accompanying manuscript is under anonymized peer review, and are to be added on
+acceptance.

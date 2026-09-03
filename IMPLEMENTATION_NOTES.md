@@ -11,10 +11,10 @@
 
 The first exported sklearn pipeline retained a pickle reference to the research-only function `crffr_hgb.search._dense`, so it could not load in a clean standalone environment. The exporter now makes the already-fitted `ColumnTransformer` emit dense output and converts the custom function transformer to sklearn's built-in identity transform. Golden predictions remain identical to `1e-9`, and serialization round-trip remains exact.
 
-## Owner review required
+## Outstanding before public release
 
 - Confirm that the standard MIT License and the separate academic-research-only, nonclinical intended-use notice match the release plan.
-- Replace all `CITATION.cff` placeholders with the complete author list, ORCIDs, repository URL, manuscript citation, journal, year, and DOI.
+- Restore the author names, ORCID iDs and the journal reference in `CITATION.cff` and the copyright holder in `LICENSE`. All four are withheld while the manuscript is under anonymized review; the file says so rather than carrying placeholders.
 - Confirm acceptance of centroid-background SHAP and its documented small difference from manuscript SHAP.
 
 ## Verification limits
