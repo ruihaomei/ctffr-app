@@ -17,8 +17,24 @@ def test_expected_output_is_fresh():
     pd.testing.assert_frame_equal(expected, actual, check_dtype=False, atol=1e-12)
 
 
+#: Directories that are not part of the source tree. A reader who follows the
+#: README makes a virtual environment right here, and the packages it installs
+#: ship their own CSV fixtures; without this the privacy check fails for them and
+#: reads as though the repository were leaking tables.
+NOT_SOURCE = {"build", "dist", "node_modules", "htmlcov", "site-packages"}
+
+
+def _source_files():
+    for path in Path(".").rglob("*"):
+        parts = path.parts
+        if any(part.startswith(".") or part in NOT_SOURCE for part in parts):
+            continue
+        yield path
+
+
 def test_public_tables_exist_only_under_examples():
-    tables = [path for path in Path(".").rglob("*") if path.suffix.casefold() in {".csv", ".xlsx", ".xls"}]
+    tables = [path for path in _source_files()
+              if path.suffix.casefold() in {".csv", ".xlsx", ".xls"}]
     assert tables
     assert all(path.parts[0] == "examples" for path in tables)
 
