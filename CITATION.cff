@@ -1,22 +1,24 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using the metadata below after the project owner replaces all placeholders."
+message: >-
+  Author names, ORCID iDs and the journal reference are withheld while the
+  accompanying manuscript is under anonymized peer review, and will be added on
+  acceptance. Until then, please cite this software by its title and repository
+  address.
 title: "CT-FFR Research Inference Application"
 type: software
 version: 0.1.0
 date-released: 2026-08-08
 authors:
-  - family-names: "PLACEHOLDER"
-    given-names: "PLACEHOLDER"
-    orcid: "PLACEHOLDER"
+  - name: "The authors of the accompanying CT-FFR prediction study"
+license: MIT
 repository-code: "https://github.com/ruihaomei/ctffr-app"
-preferred-citation:
-  type: article
-  title: "PLACEHOLDER"
-  authors:
-    - family-names: "PLACEHOLDER"
-      given-names: "PLACEHOLDER"
-      orcid: "PLACEHOLDER"
-  journal: "PLACEHOLDER"
-  year: "PLACEHOLDER"
-  doi: "PLACEHOLDER"
-
+abstract: >-
+  Local-first web, command-line and Python application for inference from a
+  locked gradient boosting model that estimates CT-derived fractional flow
+  reserve from routine coronary CT angiography measurements. For academic
+  research use only; not a medical device and not for clinical decision-making.
+keywords:
+  - coronary computed tomography angiography
+  - fractional flow reserve
+  - machine learning
+  - reproducible research
